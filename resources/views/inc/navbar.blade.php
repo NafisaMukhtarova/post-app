@@ -15,9 +15,13 @@
         <li class="nav-item">
           <a class="nav-link" href="/posts">Posts</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/dashboard">Dashboard</a>
-        </li>
+        
+        @if (!Auth::guest())
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">Dashboard</a>
+          </li>
+        @endif
+
       </ul>
       <ul class="navbar-nav ml-auto">
         <!-- Authentication Links -->

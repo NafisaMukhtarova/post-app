@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controller\SendMailController;
 
 class PostsController extends Controller
 {
@@ -87,7 +88,12 @@ class PostsController extends Controller
 
         $post->save();
 
-        return redirect('/posts')->with('success','Post was created');
+        //Send mail about adding new post on the website
+        //SendMailController::send();
+
+        //return redirect('/posts')->with('success','Post was created');
+        return redirect('posts')->with('success','Post was created');
+    
     }
 
     /**
@@ -169,7 +175,7 @@ class PostsController extends Controller
 
         $post->save();
 
-        return redirect('/posts')->with('success','Post was updated');
+        return redirect('posts')->with('success','Post was updated');
     
     }
 
@@ -194,6 +200,6 @@ class PostsController extends Controller
         }
 
         $post->delete();
-        return redirect('/posts')->with('success','Post was deleted');
+        return redirect('posts')->with('success','Post was deleted');
     }
 }

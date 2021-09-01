@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Введение</h1> 
-    <p>Начните работу с Bootstrap, самой популярной в мире платформой для создания адаптивных сайтов, ориентированных на мобильные устройства, с jsDelivr и шаблонами страниц.</p>
+    <h1> Project "Posts" </h1> 
+    <p>Here you can find interesting posts about everything.</p>
+    <p>Authorize to post your own posts</p>
+    <a class="bnt bnt-info" href="{{ route('sendmail') }}">Contact us for </a>
 @endsection

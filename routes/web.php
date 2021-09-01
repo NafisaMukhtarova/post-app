@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SendMailController;
 
 
 /*
@@ -28,6 +29,10 @@ Auth::routes();
 Route::get('/',[PagesController::class,'index'])->name('home');
 Route::get('/about',[PagesController::class,'about'])->name('about');
 
-Route::resource('posts',PostsController::class);
+Route::get('/sendemail',[SendMailController::class,'index'])->name('sendmail');
+Route::post('/sendemail/send',[SendMailController::class,'send'])->name('sendmailsubmit');
 
-Route::get('/dashboard',[DashboardController::class,'index']);
+Route::resource('posts',PostsController::class)->name('get','posts');
+
+Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+
